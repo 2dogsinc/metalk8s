@@ -33,7 +33,7 @@ exemplified below:
             size: 5G
 
 Resize lv
-------------
+---------
 
 .. todo::
    Document resizing.
