@@ -35,5 +35,14 @@ exemplified below:
 Resize lv
 ---------
 
-.. todo::
+Volumes' capacities can be resized (one or several at once).
+Change the volume size value to a higher one and run:
+
+.. code::
+
+  ansible-playbook -i 'your inventory' -t storage playbooks/deploy.yml
+
+Both file system and logical volumes are automatically resized.
+
+  .. todo::
    Document resizing.
