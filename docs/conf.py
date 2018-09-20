@@ -158,7 +158,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'MetalK8s.tex', 'MetalK8s Documentation',
-     'Scality', 'manual'),
+     'Scality', 'manual', True),
 ]
 
 latex_logo = '../artwork/generated/metalk8s-logo-wide-black.pdf'
@@ -204,7 +204,7 @@ googleanalytics_enabled = ON_RTD
 
 # -- Options for sphinxcontrib_github_alt ------------------------------------
 # See https://pypi.org/project/sphinxcontrib_github_alt/
-github_project_url = 'https://github.com/Scality/metal-k8s'
+github_project_url = 'https://github.com/Scality/metalk8s'
 
 # -- Options for sphinx.ext.intersphinx --------------------------------------
 # See http://www.sphinx-doc.org/en/stable/ext/intersphinx.html

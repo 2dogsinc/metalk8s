@@ -16,6 +16,12 @@ Features added
 
 :ghpull:`291` - add external values for nginx_ingress
 
+:ghpull:`327` - support 'external values' in `kube_heapster` and
+`kube_metrics_server`
+
+:ghpull:`373` - update third-party chart versions and use the `RollingUpdate`
+deployment strategy for Elasticsearch `data` and `master` daemons
+
 Bugs Fixed
 ----------
 :ghissue:`224` - variabilize the Kibana index pattern and service name in
@@ -46,6 +52,9 @@ Bugs fixed
 (:ghpull:`244`)
 
 :ghissue:`321` - retry until PV creation succeeds in `reclaim-storage` playbook (:ghpull:`319`)
+
+:ghissue:`381` - warn when Bash completion is not available in `make shell`
+(:ghpull:`382`)
 
 Release 1.0.0
 =============
@@ -107,8 +116,7 @@ be lost. Please see the pull-request description for manual steps required after
 upgrading a MetalK8s 0.1 cluster to MetalK8s 0.2 (:ghissue:`147`)
 
 :ghpull:`94` - flatten the storage configuration and allow more user defined
-storage related actions. Please see :ref:`upgrade_from_MetalK8s_before_0.2.0`
-(:ghissue:`153`)
+storage related actions (:ghissue:`153`)
 
 
 Features added
@@ -192,7 +200,7 @@ This marks the first release of `MetalK8s`_.
    version 1.0.0 is available. When deploying a cluster using pre-1.0 versions
    of this package, you may need to redeploy later.
 
-.. _MetalK8s: https://github.com/Scality/metal-k8s
+.. _MetalK8s: https://github.com/Scality/metalk8s
 
 Incompatible changes
 --------------------

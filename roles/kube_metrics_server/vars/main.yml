@@ -1,0 +1,10 @@
+---
+kube_metrics_server__default_values:
+  args:
+  # Default:
+  - --logtostderr
+  # MetalK8s-specific:
+  - --kubelet-insecure-tls
+  # Required to make sure node hostnames aren't resolved through DNS
+  # See https://github.com/kubernetes-incubator/metrics-server/issues/131
+  - --kubelet-preferred-address-types=InternalIP,Hostname,InternalDNS,ExternalDNS,ExternalIP
