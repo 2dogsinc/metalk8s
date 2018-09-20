@@ -14,7 +14,7 @@ exemplified below:
 
 .. code-block:: yaml
 
-    metalk8s_lvm_lvs_vg_metalk8s: ['/dev/vdb']
+    metalk8s_lvm_lvs_vg_metalk8s:
         lv01:
             size: 52G
         lv02:
