@@ -42,7 +42,4 @@ Change the volume size value to a higher one and run:
 
   ansible-playbook -i 'your inventory' -t storage playbooks/deploy.yml
 
-Both file system and logical volumes are automatically resized.
-
-  .. todo::
-   Document resizing.
+Logical volumes are automatically resized.
