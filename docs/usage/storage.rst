@@ -1,16 +1,15 @@
-Storage
-=======
+Workload Storage
+================
 
-.. todo::
-   Intro sentence.
+Any workload needs different volumes with different storage capacities
+to host its components. These volumes are stored in ``lv``, itself
+stored in ``fs``. 
 
 Volumes
 -------
 
-Any workload needs different volumes with different storage capacities
-to store its components. Following the total storage capacity needed,
-establish a number of volumes and their capacities for each node, as
-exemplified below:
+Following the total storage capacity needed, establish a number of
+volumes and their capacities for each node, as exemplified below:
 
 .. code-block:: yaml
 
