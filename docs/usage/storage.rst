@@ -3,7 +3,7 @@ Workload Storage
 
 Any workload needs different volumes with different storage capacities
 to host its components. These volumes are stored in ``lv``, itself
-stored in ``fs``. 
+stored in ``fs``.
 
 Volumes
 -------
