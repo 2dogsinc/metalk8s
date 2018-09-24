@@ -42,27 +42,68 @@ Change the volume size value to a higher one and run:
 
 Logical volumes are automatically resized.
 
+Configuration layout
+--------------------
+
+For every group or host created, the configuration files are merged.
+There are two ways to create groups and hosts.
+
+Groups
+******
+
+Create `group_vars/<group name>.yml` or `group_vars/<group name>/<file>.yml`,
+where several files can be added.
+
+Hosts
+*****
+
+Create `host_vars/<node name>.yml` or `host_vars/<node name>/<file>.yaml`.
+
+.. warning::
+   The ansible command above must be run at every addition (deletions are
+   not allowed).
+
 Add extra LVs
 -------------
 
 It is possible to add extra lvm drive and volume for one node only.
 
-1. Add a new vg and list its volume sizes, specifying the drives.
+Exemplified below, a default storage configuration:
+
+`group_vars/kube-node/storage.yml`
 
 .. code::
 
-  metalk8s_lvm_vgs = ['vg_metalk8s', 'mynewvg']
+  metalk8s_lvm_vgs = ['vg_metalk8s']
   metalk8s_lvm_drives_vg_metalk8s: ['/dev/vdb']
-  metalk8s_lvm_drives_mynewvg: ['/dev/vdc']
   metalk8s_lvm_lvs_vg_metalk8s:
-     <Volumes list>
-  metalk8s_lvm_lvs_mynewvg:
+    lv01:
+        size: 52G
+    lv02:
+        size: 52G
+    lv03:
+        size: 52G
+
+In host_vars, create a new file with:
+
+`host_vars/node_1.yml`
+
+..  code:: 
+
+   metalk8s_lvm_vgs = ['vg_metalk8s', 'mynewvg']
+   metalk8s_lvm_drives_mynewvg: ['/dev/vdc']
+   metalk8s_lvm_lvs_vg_metalk8s:
+     lv01:
+        size: 52G
+   metalk8s_lvm_lvs_mynewvg:
      lv01:
         size: 1T
 
-2. Create a host_vars dir similar to group_vars dir, and put the node name
-where to add the extra volume: :file:`<node_name>.yaml`
+On every machine except node_1, there is a single vg_metalk8s with six LVs
+(three specified, three default).
+On node_1, there are two VGs (vg_metalk8s and mynewvg) with four LVs on
+vg_metalk8s (one specified, three default) and one LV on mynewvg.
 
 .. note::
-   Volumes for vg_metalk8s do not need to be specified again, as they are
-   listed in the ``group_vars`` dir already.
+   LV names can be the same on different VGs, as they have the VG name
+   as prefixes.
