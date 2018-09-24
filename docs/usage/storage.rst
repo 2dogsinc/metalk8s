@@ -42,3 +42,17 @@ Change the volume size value to a higher one and run:
   ansible-playbook -i 'your inventory' -t storage playbooks/deploy.yml
 
 Logical volumes are automatically resized.
+
+Add extra lv
+------------
+
+It is possible to add extra lvm drive and volume for one node only.
+
+1. Add a new vg and list its volume sizes, specifying the drives.
+
+2. Create a host_vars dir similar to group_vars dir, and put the node name
+where to add the extra volume: :file:`<node_name>.yaml`
+
+.. note::
+   Volumes for vg_metalk8s do not need to be specified again, as they are
+   listed in the ``group_vars`` dir already.
