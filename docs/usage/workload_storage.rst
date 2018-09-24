@@ -50,6 +50,17 @@ It is possible to add extra lvm drive and volume for one node only.
 
 1. Add a new vg and list its volume sizes, specifying the drives.
 
+.. code::
+
+  metalk8s_lvm_vgs = ['vg_metalk8s', 'mynewvg']
+  metalk8s_lvm_drives_vg_metalk8s: ['/dev/vdb']
+  metalk8s_lvm_drives_mynewvg: ['/dev/vdc']
+  metalk8s_lvm_lvs_vg_metalk8s:
+     <Volumes list>
+  metalk8s_lvm_lvs_mynewvg: 
+     lv01:
+        size: 1T
+
 2. Create a host_vars dir similar to group_vars dir, and put the node name
 where to add the extra volume: :file:`<node_name>.yaml`
 
