@@ -2,8 +2,7 @@ Workload Storage
 ================
 
 Any workload needs different volumes with different storage capacities
-to host its components. These volumes are stored in ``lv``, itself
-stored in ``fs``.
+to host its components. These volumes are stored in :term:`LVM LV`.
 
 Volumes
 -------
@@ -31,20 +30,20 @@ volumes and their capacities for each node, as exemplified below:
         lv08:
             size: 5G
 
-Resize lv
----------
+Resize LVs
+----------
 
 Volumes' capacities can be resized (one or several at once).
 Change the volume size value to a higher one and run:
 
 .. code::
 
-  ansible-playbook -i 'your inventory' -t storage playbooks/deploy.yml
+  ansible-playbook -i <inventory>/hosts -t storage playbooks/deploy.yml
 
 Logical volumes are automatically resized.
 
-Add extra lv
-------------
+Add extra LVs
+-------------
 
 It is possible to add extra lvm drive and volume for one node only.
 
@@ -57,7 +56,7 @@ It is possible to add extra lvm drive and volume for one node only.
   metalk8s_lvm_drives_mynewvg: ['/dev/vdc']
   metalk8s_lvm_lvs_vg_metalk8s:
      <Volumes list>
-  metalk8s_lvm_lvs_mynewvg: 
+  metalk8s_lvm_lvs_mynewvg:
      lv01:
         size: 1T
 
