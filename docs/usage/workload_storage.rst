@@ -51,20 +51,13 @@ different ways.
 .. note::
    Configuration files are merged for every created host or group.
 
-Groups
-******
-
-Create `group_vars/<group name>.yml` or `group_vars/<group name>/<file>.yml`,
-where several files can be added.
-
-Hosts
-*****
-
-Create `host_vars/<node name>.yml` or `host_vars/<node name>/<file>.yaml`.
+To apply a configuration, create a .yaml file in either (or both) group_vars
+and host_vars with the group name associated, or create a folder in group_vars
+or host_vars with several .yaml files.
 
 .. warning::
-   The ansible command above must be run at every addition (deletions are
-   not allowed).
+   The ansible command above must be run at every file addition (deletions
+   are not allowed).
 
 Add extra LVs
 -------------
