@@ -45,8 +45,11 @@ Logical volumes are automatically resized.
 Configuration layout
 --------------------
 
-For every group or host created, the configuration files are merged.
-There are two ways to create groups and hosts.
+The configuration can be applied to groups and hosts in two
+different ways.
+
+.. note::
+   Configuration files are merged for every created host or group.
 
 Groups
 ******
@@ -88,7 +91,7 @@ In host_vars, create a new file with:
 
 `host_vars/node_1.yml`
 
-..  code:: 
+.. code::
 
    metalk8s_lvm_vgs = ['vg_metalk8s', 'mynewvg']
    metalk8s_lvm_drives_mynewvg: ['/dev/vdc']
@@ -99,11 +102,10 @@ In host_vars, create a new file with:
      lv01:
         size: 1T
 
-On every machine except node_1, there is a single vg_metalk8s with six LVs
+Except node_1, every machine has a single `vg_metalk8s` with six LVs
 (three specified, three default).
-On node_1, there are two VGs (vg_metalk8s and mynewvg) with four LVs on
-vg_metalk8s (one specified, three default) and one LV on mynewvg.
+On node_1, there are two VGs (`vg_metalk8s` and `mynewvg`) with four LVs on
+`vg_metalk8s` (one specified, three default) and one LV on `mynewvg`.
 
 .. note::
-   LV names can be the same on different VGs, as they have the VG name
-   as prefixes.
+   As the VG name becomes a prefix, several LVs can have the same name.
