@@ -27,6 +27,10 @@ Bugs fixed
 :ghissue:`381` - warn when Bash completion is not available in `make shell`
 (:ghpull:`382`)
 
+:ghissue:`399` - check that the hostnames in the inventory don't use
+capital letters
+(:ghpull:`409`)
+
 Release 1.0.0
 =============
 This marks the first production-ready release of `MetalK8s`_. Deployments using
